@@ -1,0 +1,15 @@
+Strategy:
+=========
+Evita sequências de IF-ELSE.
+Faz uso de polimorfismo onde cada classe tem sua estratégia específica.
+
+Como diminuir a complexidade do nosso código, trocando múltiplas condicionais por classes:
+Esta técnica é chamada de Strategy, que é um dos padrões de projeto
+
+Usado quando já sabemos previamente qual regra deve ser usada para aquele parâmetro.
+
+--------------------------------------------------------------------------------------------
+Chain of Responsability:
+=======================
+Evita sequências de IF-ELSE.
+Diferente do Strategy, eu não sei qual regra deve ser aplicada. Deve verificar para cada um dos tipos se ele é aplicado ou não.

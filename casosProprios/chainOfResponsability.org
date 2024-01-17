@@ -1,0 +1,47 @@
+* caso 3 - quando executam métodos de chamadas de outras classes
+** classe principal
+
+public abstract class PersonCard {
+
+    @Autowired
+    protected FindPersonService findPersonService;  //****** A classe que será chamada pelos elos é declarada como instância global dentro da classe abstrata
+
+    protected PersonCard nextPersonCard;
+
+    public PersonsCardDto create(PersonCardParamDto personCardParamDto) {
+        return isRightLogic(personCardParamDto) ?
+                createPersonCard(personCardParamDto) :
+                nextPersonCard.create(personCardParamDto);
+
+    }
+
+    protected abstract boolean isRightLogic(PersonCardParamDto personCardParamDto);
+
+    protected abstract PersonsCardDto createPersonCard(PersonCardParamDto personCardParamDto);
+}
+** nas classes de elos das correntes
+@Service   //********* Deixar @Service's nas classes dos elos da chain
+public class AaaFindPersonCardWhenReplacementShiftService extends PersonCard {
+
+	//******* Não declara como @Autowired os próximos elos dentro da classe
+
+	//******* Deixar construtores setando próximo elo da chain
+    public AaaFindPersonCardWhenReplacementShiftService(AaaFindPersonCardWhenReplacementWorkplaceService nextPersonCard) {
+        this.nextPersonCard = nextPersonCard; // ****** Obs: no último cria o construtor *sem parâmetros* (MUITO IMPORTANTE) - só seta o this.nextPersonCard = null;
+    }
+** classe que chama o primeiro elo da chain
+
+@Service
+public class FindPersonCardService {
+
+    @Autowired   ///******** Declara @Autowired o primeiro elo
+    private AaaFindPersonCardWhenReplacementShiftService aaaFindPersonCardWhenReplacementShiftService;
+
+    public PersonsCardDto getPersonCardBy(Long personId, Long workplaceId, PersonConditionEnum personCondition,
+                                          Long replacementId) {
+
+  ...
+
+        return aaaFindPersonCardWhenReplacementShiftService.create(personsCardParam);  //********* chama primeiro elo
+    }
+}

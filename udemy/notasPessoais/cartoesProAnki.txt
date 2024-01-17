@@ -1,0 +1,23 @@
+Front:
+Definir o esqueleto de um algoritmo dentro de uma operação, deixando alguns passos a serem preenchidos pelas subclasses. Essa padrão permite que suas subclasses redefinam certos passos de um algoritmo sem mudar sua estrutura
+
+Back:
+Template Method
+------------------------------------------------
+
+Front:
+Ter uma estrutura básica, e deixar alguns comportamentos para serem resolvidos ou especializados nas sub-classes.
+
+Back:
+Template Method
+-------------------------------------------------
+Front:
+COMO POSSO UNIR PARTES DE UM CÓDIGO QUE NÃO VARIAM COM PARTES VARIÁVEIS?
+COMO POSSO ALTERAR CERTOS PONTOS DO CÓDIGO MANTENDO UMA ESTRUTURA GERAL?
+
+Back:
+Template Method
+SOLUÇÃO
+DEFINIR UMA ABSTRAÇÃO COM TODAS OSPONTOS QUE PODEM SER VARIADOS 
+CRIAR UMA TEMPLATE QUE CONTENHA AS PARTES FIXAS E POSSUA PONTOS DE CHAMADAS PARA AS PARTES VARIÁVEI
+

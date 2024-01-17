@@ -1,0 +1,2 @@
+traz visão geral com detalhes de cada padrão de projeto:
+https://refactoring.guru/design-patterns/strategy
