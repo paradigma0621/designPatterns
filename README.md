@@ -6,7 +6,7 @@ Implementação que utiliza apenas classe abstrata. Os métodos chamados
 não envolvem requisições à services externas.
 * http://localhost:1234/chainOfResponsability/complexity2  
 Implementação que utiliza apenas classe abstrata. Os métodos chamados
-envolvem requisições à services externas. O que se mostrou relevante foi
+envolvem requisições à services externas. De geral à todas as services foi adicionado @Service, e a todas depedências foram usados @Autowired. O que se mostrou relevante foi
 a que no construtor do último elo ser vazio:
 ```
   public Person3Type() {  
